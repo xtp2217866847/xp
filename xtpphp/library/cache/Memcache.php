@@ -11,14 +11,14 @@ namespace xtpphp\library\cache;
 use config\config;
 use xtpphp\library\traits\Singleton;
 
-class Memcached
+class Memcache
 {
     use Singleton;
 
     private function __construct()
     {
-        self::$_instance = new \Memcached();
-        $config = config::get('memcached');
-        self::$_instance->addServer($config['host'],$config['port']);
+        self::$_instance = new \Memcache;
+        $config = config::get('memcache');
+        self::$_instance->connect($config['host'],$config['port']);
     }
 }

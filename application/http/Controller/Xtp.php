@@ -8,7 +8,7 @@
  */
 
 namespace application\http\Controller;
-use xtpphp\library\cache\Memcached;
+use xtpphp\library\cache\Memcache;
 use xtpphp\library\cache\Redis;
 
 class Xtp
@@ -22,19 +22,18 @@ class Xtp
     }
 
     public function redisTest(){
-        //$redis = new \Redis();
-        //$redis->connect('127.0.0.1',6039);
+        phpinfo();
         $redis = Redis::getInstance();
         return $redis->get('xtp');
     }
 
     public function memcachedTest(){
-        $memcached = Memcached::getInstance();
-        $memcached->set('name','xtp',5);
+        $memcached = Memcache::getInstance();
+        $memcached->set('name','xtp',MEMCACHE_COMPRESSED,50);
         return $memcached->get('name');
     }
 
     public function mysqlTest(){
-        
+
     }
 }
