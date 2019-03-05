@@ -26,11 +26,16 @@ class Core
             die('缺少route文件');
         }
         $method = strtolower($_SERVER['REQUEST_METHOD']);
+        if(!isset($_REQUEST['url'])){
+            echo '欢迎使用xp框架';
+            die;
+        }
         $url = $_REQUEST['url'];
         if (!array_key_exists($url,$route[$method])){
             die($method.'请求方式下该'.$url.'路由不存在');
         }
         $routeArray = explode('@',$route[$method][$url]);
+
         $controllerName = $routeArray[0];
         $controllerMethod = $routeArray[1];
         $controllerNameSpace = '\\application\\http\\Controller\\'.$controllerName;

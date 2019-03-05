@@ -11,14 +11,14 @@ namespace xtpphp\library\cache;
 use config\config;
 use xtpphp\library\traits\Singleton;
 
-class Redis
+class Memcached
 {
     use Singleton;
 
     private function __construct()
     {
-        self::$_instance = new \Redis();
-        $config = config::get('redis');
-        self::$_instance->connect($config['host'],$config['port']);
+        self::$_instance = new \Memcached();
+        $config = config::get('memcached');
+        self::$_instance->addServer($config['host'],$config['port']);
     }
 }

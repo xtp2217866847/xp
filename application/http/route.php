@@ -9,7 +9,8 @@
 $route['get'] = [
     'xtp.test' => 'Xtp@test',
     'message.create' => 'MessageController@create',
-    'redis.test' => 'Xtp@redisTest'
+    'redis.test' => 'Xtp@redisTest',
+    'memcached.test' => 'Xtp@memcachedTest'
 ];
 
 $route['post'] =[
