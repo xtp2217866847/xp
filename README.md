@@ -9,3 +9,5 @@ XP 简易MVC框架：
 redis配置: config/redis.php
 
 memcache配置: config/memcache.php
+
+2019/03/07 16:19： 新增初始化Composer
