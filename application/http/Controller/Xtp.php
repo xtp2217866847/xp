@@ -8,6 +8,7 @@
  */
 
 namespace application\http\Controller;
+use application\http\Model\Student;
 use xtpphp\library\cache\Memcache;
 use xtpphp\library\cache\Redis;
 
@@ -34,6 +35,7 @@ class Xtp
     }
 
     public function mysqlTest(){
-
+        $data = Student::getList();
+        return $data;
     }
 }
